@@ -5,34 +5,47 @@ function soma(dados) {
 	var ladoA = dados[0] * dados[6] + dados[4] * dados[2];
 	var ladoB = dados[2] * dados[6];
 
-	return `${ladoA}/${ladoB}`;
+	return `${ladoA}/${ladoB} = ${simplificacao(ladoA, ladoB)}`;
 }
 
 function subtracao(dados) {
 	var ladoA = dados[0] * dados[6] - dados[4] * dados[2];
 	var ladoB = dados[2] * dados[6];
 
-	return `${ladoA}/${ladoB}`;
+	return `${ladoA}/${ladoB} = ${simplificacao(ladoA, ladoB)}`;
 }
 
 function multiplicacao(dados) {
 	var ladoA = dados[0] * dados[4];
 	var ladoB = dados[2] * dados[6];
 
-	return `${ladoA}/${ladoB}`;
+	return `${ladoA}/${ladoB} = ${simplificacao(ladoA, ladoB)}`;
 }
 
 function divisao(dados) {
 	var ladoA = dados[0] * dados[6];
 	var ladoB = dados[4] * dados[2];
 
+	return `${ladoA}/${ladoB} = ${simplificacao(ladoA, ladoB)}`;
+}
+
+function simplificacao(ladoA, ladoB) {
+	var d = 2;
+	while (d <= ladoA || d <= ladoB) {
+		if (ladoA % d === 0 && ladoB % d === 0) {
+			ladoA /= d;
+			ladoB /= d;
+		}
+		else
+			d++;
+	}
 	return `${ladoA}/${ladoB}`;
 }
 
 function tda(expressao) {
 	var dados = expressao.split(' ');
 	for (var i = 0; i < dados.length; i++) {
-		if (i % 2 == 0)
+		if (i % 2 === 0)
 			dados[i] = parseInt(dados[i]);
 	}
 
