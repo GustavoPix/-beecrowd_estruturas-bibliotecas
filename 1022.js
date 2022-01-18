@@ -7,8 +7,16 @@ function soma(dados) {
 
 	return `${ladoA}/${ladoB}`;
 }
+
 function subtracao(dados) {
 	var ladoA = dados[0] * dados[6] - dados[4] * dados[2];
+	var ladoB = dados[2] * dados[6];
+
+	return `${ladoA}/${ladoB}`;
+}
+
+function multiplicacao(dados) {
+	var ladoA = dados[0] * dados[4];
 	var ladoB = dados[2] * dados[6];
 
 	return `${ladoA}/${ladoB}`;
@@ -27,7 +35,7 @@ function tda(expressao) {
 		case '-':
 			return subtracao(dados);
 		case '*':
-			break;
+			return multiplicacao(dados);
 		case '/':
 			break;
 	}
