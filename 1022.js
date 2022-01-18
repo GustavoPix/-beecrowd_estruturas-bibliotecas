@@ -22,6 +22,13 @@ function multiplicacao(dados) {
 	return `${ladoA}/${ladoB}`;
 }
 
+function divisao(dados) {
+	var ladoA = dados[0] * dados[6];
+	var ladoB = dados[4] * dados[2];
+
+	return `${ladoA}/${ladoB}`;
+}
+
 function tda(expressao) {
 	var dados = expressao.split(' ');
 	for (var i = 0; i < dados.length; i++) {
@@ -37,7 +44,8 @@ function tda(expressao) {
 		case '*':
 			return multiplicacao(dados);
 		case '/':
-			break;
+			return divisao(dados);
+
 	}
 }
 
